@@ -1,54 +1,43 @@
 
-import { Grid, GridItem, Heading, VStack, Flex, IconButton, Box, useColorMode, Spacer, Text, useMediaQuery, Button } from '@chakra-ui/react';
-import { useEffect, useState, useRef } from 'react';
-import { FaSun, FaMoon, FaGithub, FaLinkedin } from "react-icons/fa";
-import { HamburgerIcon, ChevronDownIcon, CloseIcon } from "@chakra-ui/icons";
+import { Heading, IconButton, Box, Switch } from '@chakra-ui/react';
+import { useEffect, useState, useRef} from 'react';
+
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Header } from './Components/Header';
 import './App.css';
 import { Social } from './Components/Social';
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-  Icon,
-  Progress,
 
-} from '@chakra-ui/react'
 import { Project } from './Components/Project';
 import Stats from "./Components/Stats";
 import GitHubCalendar from 'react-github-calendar';
 import TechnicalSkills from './Components/TechnicalSkills';
-import { Switch, Stack } from '@chakra-ui/react'
-
-import Delete_Loader from './Components/Delete_Loader';
 
 
 
-// md- medium ml-margin-left
-
+import DeleteLoader from './Components/DeleteLoader';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeColorMode } from './Redux/action';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
 
-  const { colorMode, toggleColorMode } = useColorMode();
 
-  useEffect(() => {
-    toggleColorMode()
-  }, [])
-  const isDark = colorMode === "dark" ? true : false;
-  //{lg:"row",md:"column",sm:"column",base:"column"};
-  //CloseIcon-X
+  const isDark=useSelector(store=>store.isDark);
+  
+  const dispatch=useDispatch();
+
+  
   const [icon, setIcon] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const [prog, setProg] = useState(0);
+  
 
-
-
-
+  const toggleColorMode=()=>{
+    
+    let pass;
+    isDark?pass=false:pass=true;
+    dispatch(changeColorMode(pass))
+  }
 
   const handleIcon = (() => {
     setIcon(!icon)
@@ -62,13 +51,15 @@ function App() {
 
   const callResume = () => {
 
-    window.open("https://drive.google.com/file/d/17KZ4gBMOxq7j3ybHPTq8dXLXO2pHH4yd/view?usp=share_link")
+    window.open(`${process.env.REACT_APP_Resume_Url}`)
 
   }
 
 
   useEffect(() => {
+    AOS.init({duration:2000})
     setLoading(true);
+    document.title="Portfolio | Mohan M";
     let id = setTimeout(() => {
       setLoading(false);
     }, 1000)
@@ -76,96 +67,81 @@ function App() {
   }, [])
 
 
-  const socia = isDark ? { backgroundColor: "teal", width: "100%" } : { backgroundColor: "teal", width: "100%" };
-  const obj = {
-    nav: {
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: "-10px",
-      alignContent: "center",
-      position: "sticky",
-      zIndex: "25", top: "0px",
-      flexWrap: "wrap",
-      boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px",
-      
-    }
-    
-  }
-  //FS=FontSize
+  const socia = isDark ? { backgroundColor: "#6B728E", width: "100%" } : { backgroundColor: "teal", width: "100%" };
+
   const all = {
-    invisible: { lg: "block", md: "block", sm: "none", base: "none" },
     headingFontSize:{lg:"4xl",md:"3xl",sm:"2xl",base:"xl"}
   }
-  const { navRightFS, invisible,headingFontSize } = all;
-  //width={[450,"full"]}
-  const hove = { bg: "teal.600", color: "white" };
+  const { headingFontSize } = all;
+  
   return (
 
-    <div className='App' onClick={icon % 2 != 0 ? handleIcon : null}>
+    <div className={isDark?'App':'AppWhite'} onClick={icon % 2 !== 0 ? handleIcon : null}>
       <div className={isLoading ? "loader" : "normload"} >
-        <Delete_Loader />
+         <DeleteLoader /> 
       </div>
-      <div className={isLoading ? "hideall" : "showall"} >
+       <div className={isLoading ? "hideall" : "showall"} >
 
-        <div className={isDark?"completeNav":"DarkCompleteNav"}>
-          <div className="topNav">
+         <div id={isDark?"nav-menu":"dark-nav-menu"}>
+           <div className="topNav">
             <div>
-              <button onClick={() => ref.current.scrollIntoView()}  >Home</button>
+              <button onClick={() => ref.current.scrollIntoView({behavior: "smooth"})}  >Home</button>
             </div>
-            {/* className="rightNav" */}
+            
             <div id='hamburgon'>
-              <IconButton style={{ cursor: "pointer" }} p={1} as={icon ? CloseIcon : HamburgerIcon} onClick={handleIcon} color="cyan.400" variant={"link"}></IconButton>
+              <IconButton style={{ cursor: "pointer" }} p={1} as={icon ? CloseIcon : HamburgerIcon} onClick={handleIcon} color={isDark?"white":"darkblue"} variant={"link"}></IconButton>
             </div>
-          </div>
+          </div> 
 
           <div className={icon ? "rightNavTest" : "hide-right-Nav-Test"}>
-            <button onClick={() => ref.current.scrollIntoView()}  >About </button>
-            <button onClick={() => skil.current.scrollIntoView()}  >Skills</button>
-            <button onClick={() => proj.current.scrollIntoView()}   >Projects</button>
-            <button onClick={() => contac.current.scrollIntoView()}   >Contact</button>
+            <button onClick={() => ref.current.scrollIntoView({behavior: "smooth"})}  >About </button>
+            <button onClick={() => skil.current.scrollIntoView({behavior: "smooth"})}  >Skills</button>
+            <button onClick={() => proj.current.scrollIntoView({behavior: "smooth"})}   >Projects</button>
+            <button onClick={() => contac.current.scrollIntoView({behavior: "smooth"})}   >Contact</button>
             <div>
-              <a href='https://drive.google.com/u/0/uc?id=17KZ4gBMOxq7j3ybHPTq8dXLXO2pHH4yd&export=download' download><button onClick={callResume} >Resume</button></a>
+              <a href={`${process.env.REACT_APP_Resume_Url1}`} download><button onClick={callResume} >Resume</button></a>
             </div>
             <div>
-              <IconButton id="sun-btn" _hover={isDark ? { color: "white" } : { color: "blue" }} icon={isDark ? <FaSun /> : <FaMoon />} isRound="true" onClick={toggleColorMode} color="cyan.400" variant={"link"}></IconButton>
+              <Switch size="lg" onChange={toggleColorMode}/>
             </div>
           </div>
 
 
-        </div>
-
+        </div>  
+      
          <Box ref={ref} style={{ border: "0px solid red" }}>
-          <Header />
-        </Box>
-
-        <Box ref={skil} style={{ border: "0px solid blue" }}>
+           <Header /> 
+        </Box> 
+        
+         <Box ref={skil} style={{ border: "0px solid blue" }} data-aos="fade-up">
           <TechnicalSkills />
-        </Box>
-        <Box ref={proj}>
-          <Project isDark={isDark} />
-        </Box>
-        <Box mb={{lg:"80px",md:"40px",sm:"30px",base:"25px"}}>
+        </Box> 
+        
+         <Box ref={proj} data-aos="fade-right">
+             <Project isDark={isDark} />   
+        </Box> 
+        
+        <Box mb={{lg:"80px",md:"40px",sm:"30px",base:"25px"}} data-aos="fade-right" >
           
-          <Heading className="stats-heading" fontSize={headingFontSize} textAlign={"center"} color="cyan.400" >Github Stats</Heading>
+          <Heading data-aos="fade-right" className="stats-heading" fontSize={headingFontSize} textAlign={"center"} color="cyan.400" fontFamily={'Josefin Sans'} >Github Stats</Heading>
 
               <Stats />
           
-          <Heading className="stats-heading" fontSize={headingFontSize} textAlign={"center"}  color="cyan.400" >GitHubCalendar</Heading>
+          <Heading className="stats-heading" fontSize={headingFontSize} textAlign={"center"}  color="cyan.400" fontFamily={'Josefin Sans'} >GitHubCalendar</Heading> 
           
-          <Box  style={{ display: "flex", justifyContent: "center",border:"0px solid yellow", margin:"auto",padding:"10px"}} width={{lg:"80%",md:"90%",base:"100%"}}  >
+            <Box data-aos="fade-right" className={isDark?"github-calender":"white-calender"}  width={{lg:"80%",md:"95%",base:"95%"}} >
            
                <GitHubCalendar username="MohanM501" />
          
-          </Box>
+          </Box> 
         
         </Box>
-        <Box ref={contac} style={socia}>
-          <Social isDark={isDark} />
-
+        <Box ref={contac} style={socia} data-aos="zoom-in">
+           <Social /> 
         </Box> 
+    
       </div>
     </div>
-
   );
 }
 

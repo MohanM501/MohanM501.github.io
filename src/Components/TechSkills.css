@@ -1,3 +1,5 @@
+
+
 *{
     margin:0;
     padding:0;
@@ -6,59 +8,69 @@
     border:0px solid blueviolet;
     margin-top: 8px;
     width:100%;
+    
 }
-.skill-outer{
-       display: flex; 
-       border:0px solid yellow;
-       justify-content: center;
-       margin: auto;
- }
+.main-technicals{
+    border:0px solid blueviolet;
+    margin-top: 8px;
+    width:100%;
+    position:relative;
+    animation-name:mymove;
+    animation-duration: 1s;
+}
+@keyframes mymove{
+    from {right:0px;}
+    to {left:-120px;}
+}
+
+.BackEnd-Skills>div:first-child{
+    display:none;
+}
+.front-img{
+    transition: transform 0.8s;
+}
+.front-img:hover{
+    transform: rotateY(360deg);
+    cursor: pointer;
+}
 
 @media(min-width:821px){
 
     .frontend-heading{
         margin-bottom: 50px;
     }
-    .skill-outer{
-        padding:20px;
+    
+
+    .TechSkills,.BackEnd-Skills{
+        width:80%;
+        height: 280px;
+        margin:auto;
+        display: flex;
+        /* grid-template-columns: repeat(auto-fit,minmax(80px,max-content));    */
+        grid-template-rows:80px;
+        gap:20px;
+        justify-content: center;
+        align-items: center;
+        
+        padding: 20px 60px 20px 60px;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        border:0px solid blue;
     }
 
-    .TechSkills{
-        width:90%;
-        height: 280px;
-        padding: 20px;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-       border:0px solid red;
+    .front-hero-div{
+        width:100%;
+        height: auto;
+        border: 0px solid green;
     }
     
-    .TechSkills img{
-        width:100%;
-        height: 100%;
-    }
-    .backend-outer{
-        display: flex;
-        justify-content: center;
-        border:0px solid yellow;
-        height: 280px;
-        padding:20px;
-    }
-    .backend{
-        width:90%;
-        height:100%;
+    .front-img{
+        width:120px;
+        height:120px;
+        margin: auto;
         
-        padding:40px 20px 40px 20px;
-        
-        border:0px solid orangered;
-        display: flex;
-        justify-content: space-around;
-        gap:10px;
-        box-shadow:rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    }
+    } 
     
-    .backend img{
-        width:100%;
-        height:70%;
-    }
     .backend-heading{
         margin-bottom: 50px;
         margin-top: 50px;
@@ -68,39 +80,55 @@
 
 
 @media(min-width:600px) and (max-width:820px){
+    .main-technical{
+        margin-top: 60px;
+    }
     .frontend-heading{
         margin-bottom: 40px;
     }
-    .skill-outer{
-        padding:25px;
-    }
-    .TechSkills{
-        width:85%;
-    }
-    .TechSkills img{
-        width:100%;
-        height:60%;
-    }
     .backend-heading{
-        margin-bottom: 40px;
         margin-top: 40px;
+        margin-bottom: 40px;
     }
-    .backend-outer{
-        border:0px solid salmon;
-        padding:30px;
-        margin-left: 30px;
-        margin-right: 30px;
+    #back-head{
+        margin-top: 40px;
+        margin-bottom: 40px;
     }
-    .backend{
-        display: flex;
-        justify-content: space-around;
-        gap:30px;
-        height:150px;
+   
+    .TechSkills,.BackEnd-Skills{
+        width:85%;
+        height: auto;
+        margin:auto;
+        
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows:auto;
+        gap:20px;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        border:0px solid green;
     }
-    .backend img{
+
+    .front-hero-div{
         width:100%;
-        height:60%;
+        margin: auto;
+        border: 0px solid green;
     }
+    
+    .front-img{
+        width:80px;
+        height:80px;
+        margin: auto;
+    } 
+    
+    
+    .backend-heading{
+        margin-bottom: 50px;
+        margin-top: 50px;
+        margin: auto;
+    }
+
 }
 
 
@@ -109,32 +137,51 @@
     .frontend-heading,.backend-heading{
         margin-bottom: 20px;
     }
+    #back-head{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
     
-    .skill-outer{
-        padding-left:10px;
-        padding-right: 10px;
+    .TechSkills,.BackEnd-Skills{
+        width:90%;
+        height: 250px;
+        margin:auto;
+        
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows:100px;
+        gap:15px;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        border:0px solid aqua;
     }
-    .TechSkills{
-        width:95%;
-    }
-    .TechSkills img{
-        width: 100%;
-        height:45%;
-    }
-    .backend-outer{
-        border:0px solid green;
-        padding: 20px;
-    }
-    .backend{
-        display: flex;
-        justify-content: space-around;
-        gap:10px;
-        height: 140px;
-    }
-    .backend img{
+
+    .front-hero-div{
         width:100%;
-        height:58%;
+        margin: auto;
+        font-size: 8px;
+        border: 0px solid green;
     }
+    
+    .front-img{
+        width:60px;
+        margin: auto;
+        height:60px;
+    } 
+    
+    
+    .backend-heading{
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .BackEnd-Skills>div:first-child{
+        display:block;
+    }
+    .BackEnd-Skills>div:nth-child(2){
+        display: none;
+    }
+    
 }
 /* <---- Desktop (more than 821px) ----->
 

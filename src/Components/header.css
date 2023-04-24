@@ -4,8 +4,6 @@
 
 
 
-
-
 /* <---- Desktop (more than 821px) -----> */
 
 @media(min-width:821px){
@@ -14,11 +12,14 @@
     }
     #circle{
         position: absolute;
+        background-color: gray;
+        opacity: 0.5;
         right: 50px;
         top:220px;
-        z-index: -2;
+        z-index: 0;
         width: 250px;
         height: 250px;
+       
     }
     .flex-box{
         display: flex;
@@ -31,8 +32,9 @@
         white-space: nowrap;
         overflow: hidden;    
     }
+    /* animated-text 4s steps(29,end) 1s 1 normal both, */
     #asp{
-        animation: animated-text 4s steps(29,end) 1s 1 normal both,
+        animation: animated-text 4s steps(29,end) infinite,
                     animated-cursor 600ms steps(29,end) infinite;
           
     }
@@ -44,7 +46,28 @@
         from{border-right-color: rgba(0,255,0,.75);}
         to{border-right-color: transparent;}
       }
-    
+
+      .resume-btn{
+          margin-top: 40px;
+      }
+      #introd-para{
+          margin-top: 20px;
+          margin-right: 40px;
+      }
+     
+      #resume-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #resume-btn img{
+          width: 80%;
+          height:100%;  
+      }
+      #resume-btn2 img{
+          display: none;
+      }
+      
 }
 
 /* <----- Tablet(600px to 820px) -----> */
@@ -65,6 +88,7 @@
         flex-direction: column-reverse;
     }
     .resume-btn{
+        margin-top: 20px;
         display:flex;
         justify-content: center;
     }
@@ -72,7 +96,23 @@
         display: flex;
         justify-content: center;
     }
-    
+    #introd-para{
+        
+        margin: 20px;
+    }
+    #resume-btn {
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    #resume-btn img{
+          width: 80%;
+          height:100%;  
+    }
+    #resume-btn2 img{
+        display: none;
+    }
+   
 }
 
 /* <------ mobile (max 599px) ---> */
@@ -90,6 +130,7 @@
         flex-direction: column;
     }
     .resume-btn{
+        margin-top: 20px;
         display:flex;
         justify-content: center;
     }
@@ -97,5 +138,21 @@
         display: flex;
         justify-content: center;
     }
+    #introd-para{
+        margin: 15px 10px 10px 10px;
+    }
+    #resume-btn {
+        display: flex;
+        justify-content: space-between;
+        
+      }
+      #resume-btn img{
+          width: 80%;
+          height:100%;  
+      }
+      #resume-btn2 img{
+        display: none;
+    }
     
+     
 }

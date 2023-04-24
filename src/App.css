@@ -1,14 +1,44 @@
 
+  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+  @import url('https://fonts.googleapis.com/css?family=Tangerine');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  
   *{
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'Josefin Sans';
+    /* font-family:Arial, Helvetica, sans-serif; */
+  }
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+
+  ::-webkit-scrollbar-thumb {
+    height: 140px;
+    background: gray; 
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #474E68; 
+    
   }
   
+  .App,.AppWhite{
+     width: 100%; 
+    
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    
+  }
   .App{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,min-max(150px,1fr));
+    background-color:#474E68;
+    min-height: 100vh;
   }
   
 
@@ -19,31 +49,36 @@
   .normload{
     display: none;
   }
-  .completeNav,.DarkCompleteNav{
+  #nav-menu,#dark-nav-menu{
     font-size: 25px;
-    color:rgb(38, 198, 218);
-    font-weight: 900;
+    border-radius: 10px;
+    font-weight: 700;
     position: sticky;
-    top:0;
+    top:0.2px;
     z-index: 8;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
- .completeNav button:hover{
-    color:aqua;
-    text-decoration: underline;
- }
- .DarkCompleteNav button:hover{
-    color:darkblue;
-    text-decoration: dashed;
- }
-  /* .rightNav{
-    display: flex;
+  #nav-menu button{
+    
+    color:white; 
+    
+    /* font-family: 'Tangerine'; for Name sign */
+    /* font-family: 'Poppins', sans-serif;  */
   }
-  
-  .rightNav button{
+ #nav-menu button:hover{
+    color:rgb(38, 198, 218);
+    border-bottom: 3px solid rgb(38, 198, 218) ;
+    font-weight: bold;
+ }
+ #dark-nav-menu button{
+   color:darkblue;
    
-    margin-left: 25px;
-  } */
+ }
+ #dark-nav-menu button:hover{
+    color:aqua;
+    text-decoration: none;
+ }
+ 
   .showall{
     display:block;
   }
@@ -51,27 +86,53 @@
   .hideall{
     display:none
   }
+
+  .github-calender,.white-calender{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding:10px;
+    color:white;
+    border:0px solid red;
+  }
+  .white-calender{
+    color:black;
+  }
+
+
+
+
+
+
+
 /* <---- for desktop starts here ----> */
 
 @media(min-width:821px){
   #hamburgon{
     display: none;
   }
-  .completeNav,.DarkCompleteNav{
-    border: 0px solid red;
+  #nav-menu,#dark-nav-menu{
+    
     /* background-image:linear-gradient(#718096,#A0AEC0); */
     /* background-color:#718096; */
-    font-size: 30px;
+    font-size: 25px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px;
+    border:0px solid red;
   }
-  .completeNav{
-     background-color: #718096; 
+  #nav-menu{
+     /* background-color: #718096;  */
+     /* background-image: linear-gradient(180deg,#718096,#718096); */
     /* background-color: black; */
+    border: 0px solid green;
+    background-color: #404258;
   }
-  .DarkCompleteNav{
-    background-color: lightblue;
+  #dark-nav-menu{
+     background-color: lightblue; 
+    
   }
 
  .hide-right-Nav-Test{
@@ -98,17 +159,19 @@
       #hamburgon{
         display:none;
       }
-      .completeNav,.DarkCompleteNav{
+      #nav-menu,#dark-nav-menu{
         border:0px solid green;
         
         padding: 20px;
         font-size: 20px;
       }
-      .completeNav{
-         background-color: #718096; 
+      #nav-menu{
+         /* background-color: #718096;  */
         /* background-color: black; */
+         background-color:#404258; 
+        
       }
-      .DarkCompleteNav{
+      #dark-nav-menu{
         background-color: lightblue;
       }
       
@@ -141,6 +204,7 @@
          margin-bottom: 40px;
          margin-top: 10px;
       }
+     
 }
 
 
@@ -149,25 +213,32 @@
   
   #hamburgon{
       display: block;
+      display: flex;
+      align-items: center;
   }
-
+  .topNav>div{
+    border: 0px solid green;
+    display: flex;
+    align-items: center;
+  }
   .topNav{
     display: flex;
     justify-content: space-between;
     justify-items: center;
+    height: 60px;
     border:0px solid brown;
 
   }
-  .completeNav,.DarkCompleteNav{
+  #nav-menu,#dark-nav-menu{
     border:0px solid red;
    
     padding: 10px 25px 5px 25px;
   }
-  .completeNav{
-    /* background-color: #718096; */
-    background-color: black;
+  #nav-menu{
+     background-color: #404258;
+    /* background-color: black; */
   }
-  .DarkCompleteNav{
+  #dark-nav-menu{
     background-color: lightblue;
   }
 .rightNavTest{
@@ -212,7 +283,26 @@
      margin-bottom: 25px;
   }
  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    height: 40px;
+    background: gray; 
+    border-radius: 10px;
+  } 
+  
+ 
 }
   
 
 /*  give padding to make consise or to fix inside it those texts in a box like remove github calender padding inside inline style then u know */
+
+
+/* background-color: #404258;  dark blue*/
+    /* background-color: #222; beutiful black*/
+     /*background-color:#181D31; chakra blue*/
+     /*181D31*/
+     /* background-color:#222222;  black*/
+    /* background-color:#50577A;  blue good */ 
+    /* background-color:#474E68; dark blue */

@@ -1,0 +1,248 @@
+
+
+
+.project-container{
+    width:90%;
+    margin: auto;
+    border:0px solid red;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+}
+
+.project-container-div{
+    width:100%;
+    border:0px solid red;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.Tech-stack{
+    width: 100%;
+    display: flex;
+    gap:20px;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 0px solid blueviolet;
+}
+
+.project-web-img img{
+    width: 100%;
+    height: auto;  
+    transition: transform .2s;
+}
+.project-web-img{
+    width: 100%;
+    height:250px;
+    border: 0px solid green;
+    overflow: hidden;
+    
+}
+.project-web-img img:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.titley{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Demo-github,.light-Demo-github{
+    margin-top:10px;
+    display: flex;
+    gap:40px;
+    justify-content: center;
+    align-items: center;
+}
+.Demo-github>button,.light-Demo-github>button{
+    border: 0px solid red;
+    color:black;
+    font-weight: bold;
+    background-color: white;
+    padding:10px;
+    border-radius:8px;  
+}
+.light-Demo-github>button{
+    background-color: teal;
+    color:black;
+}
+.Demo-github>button:hover,.light-Demo-github>button:hover{
+    background-color: rgb(38, 198, 218);
+    color:white;
+}
+
+@media(min-width:821px){
+    .project-container{
+        gap:40px;
+        padding:20px;
+    }
+    .project-container-div{
+        margin-bottom: 20px;
+        padding:30px;
+        border-radius: 25px;
+    }
+    .project-web-img{
+        margin-bottom: 20px;
+    }
+    
+    .space{
+        margin-top: 20px;
+        text-align: justify;
+        text-align-last: center;
+        height: 60px;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .Project-HeroImg{
+        width:40px;
+        height: 40px;
+        margin: auto;
+        border:0px solid blue;
+    }
+    .tech-name{
+        border: 0px solid red;
+        text-align: center;
+        margin: auto;
+    }
+    .tech-stack-head{
+        width:40%;
+        font-size: 18px;
+        text-align: end;
+    }
+    .tech-stack-conatiner{
+        width:60%;
+        display: grid;
+        border: 0px solid greenyellow;
+        grid-template-columns: repeat(auto-fit,minmax(40px,max-content));
+        justify-content: left;
+        align-items: center;
+        gap:10px;
+        padding: 10px 0px 10px 0px;
+    }
+}
+
+@media(min-width:600px) and (max-width:820px){
+    .project-container{
+        width:85%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap:30px;
+    }
+    .project-container-div{
+        border:0px solid red;
+        padding:30px;
+        border-radius: 20px;
+    }
+    .Project-HeroImg{
+        width:40px;
+        height: 40px;
+        margin: auto;
+        border:0px solid blue;
+    }
+    .tech-name{
+        border: 0px solid red;
+        text-align: center;
+        margin: auto;
+    }
+    .tech-stack-head{
+        width:40%;
+        text-align: end;
+        font-size: 18px;
+    }
+    .tech-stack-conatiner{
+        width:60%;
+        margin-left: 20px;
+        flex-grow: 1;
+        display: grid;
+        border: 0px solid greenyellow;
+        grid-template-columns: repeat(auto-fit,minmax(40px,max-content));
+        justify-content: left;
+        align-items: center;
+        gap:10px;
+        padding: 10px 0px 10px 0px;
+    }
+
+    
+    .titley{
+        font-size: 26px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .space{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+}
+
+@media(max-width:599px){
+    .project-container{
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap:20px;
+        border:0px solid blue;
+    }
+    .project-container-div{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border:0px solid red;
+        padding:20px;
+        border-radius: 15px;
+    }
+    .Project-HeroImg{
+        width:30px;
+        height: 30px;
+        margin: auto;
+    }
+    .project-web-img{
+        height:auto; 
+    }
+    .Project-HeroImg{
+        width:30px;
+        height: 30px;
+        margin: auto;
+        border:0px solid blue;
+    }
+    .Tech-stack{
+        border: 0px solid greenyellow;
+        gap:0px;
+    }
+    .tech-stack-conatiner{
+        width:100%;
+        margin: auto;
+        display: grid;
+        border: 0px solid green;
+        grid-template-columns: repeat(auto-fit,minmax(35px,max-content));
+        grid-template-rows:repeat(auto-fit,minmax(35px,max-content));
+        justify-content: center;
+        align-items: center;
+        gap:10px;
+        padding: 10px 0px 10px 0px;
+    }
+    .tech-name{
+        border: 0px solid red;
+        text-align: center;
+        margin: auto;
+        font-size: 10px;
+    }
+    .tech-stack-head{
+        font-size: 12px; 
+    }
+    .titley{
+        margin-top: 10px;
+    }
+    .space{
+        margin-top: 20px;
+        text-align: justify;
+        text-align-last: center;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+   
+    .Demo-github,.light-Demo-github{
+        font-size: 12px;
+    }
+    .Demo-github>button,.light-Demo-github>button{
+        padding:5px;
+        margin-bottom:5px;
+    }
+    
+     
+}
