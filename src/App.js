@@ -82,7 +82,7 @@ function App() {
       </div> */}
       {/* <div className={isLoading ? "hideall" : "showall"} > */}
 
-        <div id={isDark?"nav-menu":"dark-nav-menu"}>
+        <div id={"nav-menu"}>
           <div className="topNav">
 
             <div>
