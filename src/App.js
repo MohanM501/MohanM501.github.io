@@ -56,15 +56,15 @@ function App() {
   }
 
 
-  useEffect(() => {
-    AOS.init({duration:2000})
-    setLoading(true);
-    document.title="Portfolio | Mohan M";
-    let id = setTimeout(() => {
-      setLoading(false);
-    }, 1000)
-    return () => clearTimeout(id);
-  }, [])
+  // useEffect(() => {
+  //   AOS.init({duration:2000})
+  //   setLoading(true);
+  //   document.title="Portfolio | Mohan M";
+  //   let id = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 1000)
+  //   return () => clearTimeout(id);
+  // }, [])
 
 
   const socia = isDark ? { backgroundColor: "#6B728E", width: "100%" } : { backgroundColor: "teal", width: "100%" };
@@ -77,13 +77,14 @@ function App() {
   return (
 
     <div className={isDark?'App':'AppWhite'} onClick={icon % 2 !== 0 ? handleIcon : null}>
-      <div className={isLoading ? "loader" : "normload"} >
+      {/* <div className={isLoading ? "loader" : "normload"} >
          <DeleteLoader /> 
-      </div>
-       <div className={isLoading ? "hideall" : "showall"} >
+      </div> */}
+      {/* <div className={isLoading ? "hideall" : "showall"} > */}
 
-         <div id={isDark?"nav-menu":"dark-nav-menu"}>
-           <div className="topNav">
+        <div id={isDark?"nav-menu":"dark-nav-menu"}>
+          <div className="topNav">
+
             <div>
               <button onClick={() => ref.current.scrollIntoView({behavior: "smooth"})}  >Home</button>
             </div>
@@ -91,6 +92,7 @@ function App() {
             <div id='hamburgon'>
               <IconButton style={{ cursor: "pointer" }} p={1} as={icon ? CloseIcon : HamburgerIcon} onClick={handleIcon} color={isDark?"white":"darkblue"} variant={"link"}></IconButton>
             </div>
+
           </div> 
 
           <div className={icon ? "rightNavTest" : "hide-right-Nav-Test"}>
@@ -107,9 +109,9 @@ function App() {
           </div>
 
 
-        </div>  
+        </div>   
       
-         <Box ref={ref} style={{ border: "0px solid red" }}>
+        <Box ref={ref} id="about" style={{ border: "0px solid red" }}>
            <Header /> 
         </Box> 
         
@@ -140,7 +142,7 @@ function App() {
            <Social /> 
         </Box> 
     
-      </div>
+      {/* </div> */}
     </div>
   );
 }
