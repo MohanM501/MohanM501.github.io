@@ -53,9 +53,9 @@ const TechnicalSkills = () => {
                         {
                             FrontHeroImages.length>0 && FrontHeroImages.map((item,index)=>{
                                 return (
-                                         <div key={index} className="front-hero-div">
-                                             <img src={item.img}  className="front-img" alt={`hero-front-img`} />
-                                             <Text fontSize={font} mt={textmarginTop} textAlign={textalign} color={col} >{item.name}</Text>
+                                         <div key={index} className="skills-card" >
+                                             <img src={item.img}  className="skills-card-img" alt={`hero-front-img`} />
+                                             <Text fontSize={font} className="skills-card-name" mt={textmarginTop} textAlign={textalign} color={col} >{item.name}</Text>
                                          </div> 
                                 )
                             })
@@ -69,9 +69,9 @@ const TechnicalSkills = () => {
                         {
                             BackHeroImages.length>0 && BackHeroImages.map((item,index)=>{
                                 return (
-                                         <div key={index} className="front-hero-div">
-                                             <img src={item.img}  className="front-img" alt={`hero-front-img`} />
-                                             <Text fontSize={font} mt={textmarginTop} textAlign={textalign} color={col}  >{item.name}</Text>
+                                         <div key={index} className="skills-card">
+                                             <img src={item.img}  className="skills-card-img" alt={`hero-front-img`} />
+                                             <Text className="skills-card-name"  fontSize={font} mt={textmarginTop} textAlign={textalign} color={col}  >{item.name}</Text>
                                          </div> 
                                 )
                             })

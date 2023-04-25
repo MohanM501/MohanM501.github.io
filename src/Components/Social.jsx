@@ -22,22 +22,22 @@ function Social() {
             <Box textAlign={"center"} >
                 <Box className={styles.Email_Parent}>
                         <Icon className={styles.phone} _hover={{color:"cyan.400"}} cursor="pointer" color={isDark?"white":"teal.200"} as={FaPhone} boxSize="25" />
-                        <Text fontSize={{lg:"xl",md:"xl",sm:"md",base:"md"}} color={"white"}> +91 9008510595</Text>
+                        <Text  id="contact-phone" fontSize={{lg:"xl",md:"xl",sm:"md",base:"md"}} color={"white"}> +91 9008510595</Text>
                 </Box>
                 
                 <br/>
                 <Box className={styles.Email_Parent}>
                     <Icon className={styles.email} _hover={{color:"cyan.400"}} cursor="pointer" color={isDark?"white":"teal.200"} onClick={()=>window.open("https://mail.google.com/mail/u/0/#inbox")}as={CgMail} boxSize="35" />
-                    <Text fontSize={{lg:"xl",md:"xl",sm:"md",base:"md"}} color={"white"} > mohananna501@gmail.com </Text>
+                    <Text id="contact-email" fontSize={{lg:"xl",md:"xl",sm:"md",base:"md"}} color={"white"} > mohananna501@gmail.com </Text>
                 </Box>
                 <br/>
                 <Box className={styles.footer} style={{display:"flex",justifyContent:"center",alignItems:"center"}} >
-                    <Box className={styles.footer_github} cursor="pointer"  >
+                    <Box className={styles.footer_github} cursor="pointer" id="contact-github"  >
                         <Icon _hover={{color:"cyan.400"}} color={isDark?"white":"teal.200"} onClick={()=>window.open("https://github.com/MohanM501")}as={FaGithub} boxSize={"10"} />
                         <Text _hover={{color:"cyan.400"}} fontSize={{lg:"xl",md:"xl",sm:"md",base:"md"}}  color={"white"} onClick={()=>window.open("https://github.com/MohanM501")}>GitHub</Text>
                     </Box>
                     
-                    <Box className={styles.footer_github} cursor="pointer" >
+                    <Box className={styles.footer_github} cursor="pointer" id="contact-linkedin" >
                         <Icon _hover={{color:"cyan.400"}}  color={isDark?"white":"teal.200"} ml={"4"} onClick={()=>window.open("https://www.linkedin.com/in/mohan-m-connect/")} as={FaLinkedin} boxSize={"10"} />
                         <Text _hover={{color:"cyan.400"}} fontSize={{lg:"xl",md:"xl",sm:"md",base:"md"}} color={"white"} onClick={()=>window.open("https://www.linkedin.com/in/mohan-m-connect/")} >LinkedIn</Text>
                     </Box>

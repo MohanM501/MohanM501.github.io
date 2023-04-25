@@ -9,7 +9,7 @@ const Stats = () => {
 
       <div >
         <a  href="https://github.com/MohanM501">
-          <img id="first"
+          <img id="github-streak-stats"
             style={bs}
             fontFamily={'Josefin Sans'}
             src="https://github-readme-streak-stats.herokuapp.com/?user=MohanM501"
@@ -19,7 +19,7 @@ const Stats = () => {
         </a>
 
         <a  href="https://github.com/MohanM501">
-          <img id="second"
+          <img id="github-top-langs"
              style={bs}
              fontFamily={'Josefin Sans'}
             src="https://github-readme-stats.vercel.app/api/top-langs/?username=MohanM501"  //launguages
@@ -30,7 +30,7 @@ const Stats = () => {
 
         <a  href="https://github.com/MohanM501">
           <img
-            id="third"
+            id="github-stats-card"
             style={bs}
             fontFamily={'Josefin Sans'}
             src="https://github-readme-stats.vercel.app/api?username=MohanM501&count_private=true&show_icons=true" //stats

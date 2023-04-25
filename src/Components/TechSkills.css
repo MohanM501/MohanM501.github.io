@@ -26,10 +26,10 @@
 .BackEnd-Skills>div:first-child{
     display:none;
 }
-.front-img{
+.skills-card-img{
     transition: transform 0.8s;
 }
-.front-img:hover{
+.skills-card-img:hover{
     transform: rotateY(360deg);
     cursor: pointer;
 }
@@ -58,13 +58,13 @@
         border:0px solid blue;
     }
 
-    .front-hero-div{
+    .skills-card{
         width:100%;
         height: auto;
         border: 0px solid green;
     }
     
-    .front-img{
+    .skills-card-img{
         width:120px;
         height:120px;
         margin: auto;
@@ -110,13 +110,13 @@
         border:0px solid green;
     }
 
-    .front-hero-div{
+    .skills-card{
         width:100%;
         margin: auto;
         border: 0px solid green;
     }
     
-    .front-img{
+    .skills-card-img{
         width:80px;
         height:80px;
         margin: auto;
@@ -157,14 +157,14 @@
         border:0px solid aqua;
     }
 
-    .front-hero-div{
+    .skills-card{
         width:100%;
         margin: auto;
         font-size: 8px;
         border: 0px solid green;
     }
     
-    .front-img{
+    .skills-card-img{
         width:60px;
         margin: auto;
         height:60px;

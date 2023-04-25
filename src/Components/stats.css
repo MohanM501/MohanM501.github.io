@@ -8,7 +8,7 @@
 
 @media(min-width:821px){
    
-    #first,#second,#third{
+    #github-streak-stats,#github-top-langs,#github-stats-card{
         width:40%;
         border:0px solid red;
         margin:auto;
@@ -22,7 +22,7 @@
 /* <----- Tablet(600px to 820px) -----> */
 
  @media(min-width:600px) and (max-width:820px){
-    #first,#second,#third{
+    #github-streak-stats,#github-top-langs,#github-stats-card{
         width:70%;
         border:0px solid red;
         margin:auto;
@@ -33,7 +33,7 @@
 /* <------ mobile (max 599px) ---> */
 
  @media(max-width:599px){
-    #first,#second,#third{
+    #github-streak-stats,#github-top-langs,#github-stats-card{
         width:90%;
         border:0px solid red;
         margin:auto;

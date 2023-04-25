@@ -1,4 +1,4 @@
-.main-head{
+#about{
     border:0px solid yellow;
 }
 
@@ -7,7 +7,7 @@
 /* <---- Desktop (more than 821px) -----> */
 
 @media(min-width:821px){
-    .main-head{
+    #about{
         margin-top: 40px;
     }
     #circle{
@@ -15,16 +15,17 @@
         background-color: gray;
         opacity: 0.5;
         right: 50px;
-        top:220px;
+        top:100px;
         z-index: 0;
-        width: 250px;
-        height: 250px;
+        width: 240px;
+        height: 240px;
        
     }
     .flex-box{
         display: flex;
         justify-content: space-evenly;
-        padding:120px;
+        padding:50px;
+        border:0px solid red;
     }
     
     #asp{
@@ -50,24 +51,26 @@
       .resume-btn{
           margin-top: 40px;
       }
-      #introd-para{
+      #user-detail-intro{
           margin-top: 20px;
           margin-right: 40px;
       }
      
-      #resume-btn {
+      #resume-button-2 {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-      #resume-btn img{
+      #resume-button-2 img{
           width: 80%;
           height:100%;  
       }
-      #resume-btn2 img{
+      #resume-button-22 img{
           display: none;
       }
-      
+      #Header-Intro{
+          font-size: 20px;
+      }
 }
 
 /* <----- Tablet(600px to 820px) -----> */
@@ -76,7 +79,7 @@
     #hi{
         margin-top: 15px;
     }
-    .main-head{
+    #about{
         margin-top: 20px;
         padding:15px;
     }
@@ -96,21 +99,26 @@
         display: flex;
         justify-content: center;
     }
-    #introd-para{
+    #user-detail-intro{
         
         margin: 20px;
     }
-    #resume-btn {
+    #resume-button-2 {
         display: flex;
         justify-content: space-between;
         
     }
-    #resume-btn img{
+    #resume-button-2 img{
           width: 80%;
           height:100%;  
     }
-    #resume-btn2 img{
+    #resume-button-22 img{
         display: none;
+    }
+    #Header-Intro{
+        margin-top: 5px;
+        font-size: 15px;
+        text-align: center;
     }
    
 }
@@ -118,7 +126,7 @@
 /* <------ mobile (max 599px) ---> */
 
 @media(max-width:599px){
-    .main-head{
+    #about{
         margin-top: 10px;
         padding:10px;
     }
@@ -138,21 +146,25 @@
         display: flex;
         justify-content: center;
     }
-    #introd-para{
+    #user-detail-intro{
         margin: 15px 10px 10px 10px;
     }
-    #resume-btn {
+    #resume-button-2 {
         display: flex;
         justify-content: space-between;
         
       }
-      #resume-btn img{
+      #resume-button-2 img{
           width: 80%;
           height:100%;  
       }
-      #resume-btn2 img{
+      #resume-button-22 img{
         display: none;
     }
-    
+    #Header-Intro{
+        margin-top: 8px;
+        font-size: 12px;
+        text-align: center;
+    }
      
 }

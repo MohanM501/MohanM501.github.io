@@ -1,7 +1,8 @@
 import * as Types from "./actionTypes";
 
 let initialState={
-    isDark:true
+    isDark:true,
+    windowSize:0
 }
 
 const reducer=(oldState=initialState,action)=>{
@@ -12,6 +13,13 @@ const reducer=(oldState=initialState,action)=>{
                 ...oldState,
                 isDark:payload
             }
+    
+        case Types.SET_WINDOW_SIZE:
+            return{
+                ...oldState,
+                windowSize:payload
+            }
+
         default:
             return oldState;
     }

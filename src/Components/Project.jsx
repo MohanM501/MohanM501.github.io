@@ -4,10 +4,11 @@ import {
   Box,
   Text,
 } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./project.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { setWindowSize1 } from "../Redux/action";
 
 const obj = {
   imStyle: { display: "flex", justifyContent: "center" },
@@ -84,6 +85,7 @@ let ProjectArray = [
 
 const Project = () => {
   const isDark=useSelector(store=>store.isDark);
+  const dispatch=useDispatch();
   const col=isDark?"white":"#718096";
   const col1=isDark?"white":"black";
   const [windowSize, setWindowSize] = useState([
@@ -92,7 +94,8 @@ const Project = () => {
   ]);
 
   useEffect(() => {
-    AOS.init({duration:2000})
+    AOS.init({duration:2000});
+    
     const handleWindowResize = () => {
       setWindowSize([window.innerWidth, window.innerHeight]);
     };
@@ -103,7 +106,13 @@ const Project = () => {
       window.removeEventListener('resize', handleWindowResize);
     };
     
-  });
+  },[]);
+
+  useEffect(()=>{
+    
+    dispatch(setWindowSize1(windowSize[0]));
+
+  },[dispatch,windowSize])
 
   if(windowSize[0]<=599){
     JavaScriptImg.name="JS";
@@ -129,17 +138,17 @@ const Project = () => {
           {ProjectArray.length > 0 &&
             ProjectArray.map((item, index) => {
               return (
-                <div className="project-container-div" key={index} data-aos="zoom-in">
+                <div className="project-card" key={index} data-aos="zoom-in">
                   <div className="project-web-img">
-                  <img src={item.img}  alt="TimeTracker" />
+                   <img src={item.img}  alt="TimeTracker" />
                   </div>
-                  <div className="titley">
+                  <div className="project-title">
                     <Text fontSize={title_fonts} as="b" color={col1}>
                         {item.name}
                     </Text>
                   </div>
                   
-                  <Text color={col} className="space">
+                  <Text color={col} className="project-description">
                    {item.description}
                   </Text>
                   <div className="Tech-stack">
@@ -147,7 +156,7 @@ const Project = () => {
                      <Box className="tech-stack-conatiner" color={col} >
                       {item.TechStack.length>0 && item.TechStack.map((item,ind)=>{
                         return (
-                            <div key={ind}>
+                            <div key={ind} className="project-tech-stack">
                                <img src={item.img} alt={item.name} className="Project-HeroImg"/>
                                <div className="tech-name">{item.name} </div>
                             </div>
@@ -161,6 +170,7 @@ const Project = () => {
                       onClick={() =>
                         window.open(`${item.demo_link}`)
                       }
+                      className="project-deployed-link"
                     >
                       Demo
                     </button>
@@ -171,6 +181,7 @@ const Project = () => {
                           `${item.github_link}`
                         )
                       }
+                      className="project-github-link"
                     >
                       Github
                     </button>

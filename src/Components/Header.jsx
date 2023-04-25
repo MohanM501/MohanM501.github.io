@@ -1,18 +1,21 @@
 import { Circle, Text, Button, Image,Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import {useState} from "react";
+import AboutMe from "./AboutMe";
 
 import "./header.css";
 
 const Header = () => {
   const isDark = useSelector((store) => store.isDark);
-
+  const [dummy,setDummy]=useState(false);
   // const image=require('./medium.jpg');
-  // const pdf=require('./Mohan M Resume.pdf')
+  const pdf=require('./Mohan M Resume.pdf')
 
   const callResume = () => {
     window.open(
       `${process.env.REACT_APP_Resume_Url}`
     );
+    setDummy(!dummy);
   };
 
   let obj = {
@@ -25,10 +28,8 @@ const Header = () => {
     gradient: "linear(to-r, cyan.400, blue.500, purple.600)",
     lineHeight: { lg: "10", md: "8", sm: "7", base: "6" },
     downlogo: "https://i.postimg.cc/vHMLFq2t/image.jpg",
-    downlink:
-    `${process.env.REACT_APP_Resume_Url1}`,
-    Intro_content:
-      "MERN developer with intuitive problem-solving skills and spent 1200+ hours in coding and DSA. Passionate about projects and debugging. Curious to solve problems and learn emerging technologies. Looking forward to working as a team and as an individual to make a significant contribution to an organization.",
+    downlink:`${process.env.REACT_APP_Resume_Url1}`,
+    Intro_content:"MERN Stack Developer | Problem Solver | Continious Learner | Team Player ",
   };
   const {
     textalign,
@@ -44,7 +45,8 @@ const Header = () => {
     Intro_content,
   } = obj;
   return (
-    <div className="main-head">
+    <section className="about section" id="about">
+      
       <Circle id="circle" alignSelf="flex-end"></Circle>
       <div className="flex-box">
         <div className="text-resume">
@@ -64,6 +66,7 @@ const Header = () => {
             fontWeight="bold"
             bgGradient={gradient}
             bgClip="text"
+            id="user-detail-name"
           >
             {" "}
             Mohan M{" "}
@@ -84,29 +87,31 @@ const Header = () => {
               <Text>Aspiring </Text>
               <Text id="asp">Full Stack Developer</Text>{" "}
             </Text>  
-             <Text
+            <Text
+              mt={{lg:"8px",base:"0px"}}
               textAlign={textspaceAlign}
               lineHeight={lineHeight}
-              fontSize={{lg:"0.5xl"}}
-              id="introd-para"
+              fontSize={"20px"}
+              id="Header-Intro"
             >
               {Intro_content}
             </Text> 
           </Box> 
-           <div className="resume-btn">
-            <a href={downlink} download>
-              <Button
-                id={isDark ? "resume-btn" : "resume-btn2"}
-                onClick={callResume}
-                alignSelf="center"
-                backgroundColor={isDark ? "white" : "teal"}
-              >
-                <Text>Resume</Text>
-                <img src={downlogo} alt="download" />
-              </Button>
-            </a>
-             {/* <a href={pdf} download >resume se</a>  */}
-          </div> 
+          
+            <div className="resume-btn"> 
+              <a id="resume-link-2" href={pdf} download>
+                <Button
+                  id={isDark ? "resume-button-2" : "resume-button-22"}
+                  onClick={callResume}
+                  alignSelf="center"
+                  backgroundColor={isDark ? "white" : "teal"}
+                >
+                  <Text>Resume</Text>
+                  <img src={downlogo} alt="download" /> 
+                </Button>
+              </a> 
+            {/* <a href={pdf} download >resume se</a>  */}
+            </div>  
         </div>
 
         <Image
@@ -119,10 +124,12 @@ const Header = () => {
           backgroundColor="transparent"
           boxShadow="lg"
           boxSize={{ lg: "300px", md: "240px", sm: "200px", base: "160px" }}
+          className="home-img"
           src="https://avatars.githubusercontent.com/u/107466981?v=4"
         />
       </div>
-    </div>
+      <AboutMe/>
+    </section>
   );
 };
 

@@ -20,20 +20,17 @@ import { changeColorMode } from './Redux/action';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 function App() {
 
-
-  const isDark=useSelector(store=>store.isDark);
-  
+  const {isDark,windowSize}=useSelector(store=>store);
   const dispatch=useDispatch();
 
-  
   const [icon, setIcon] = useState(false);
   const [isLoading, setLoading] = useState(false);
   
 
   const toggleColorMode=()=>{
-    
     let pass;
     isDark?pass=false:pass=true;
     dispatch(changeColorMode(pass))
@@ -43,12 +40,9 @@ function App() {
     setIcon(!icon)
   })
 
-  const ref = useRef(null);
-  const skil = useRef(null);
-  const proj = useRef(null);
+  let scrol1=useRef({"about":500,"skills":850,"projects":1830})
   const contac = useRef(null);
-
-
+ 
   const callResume = () => {
 
     window.open(`${process.env.REACT_APP_Resume_Url}`)
@@ -56,16 +50,30 @@ function App() {
   }
 
 
-  // useEffect(() => {
-  //   AOS.init({duration:2000})
-  //   setLoading(true);
-  //   document.title="Portfolio | Mohan M";
-  //   let id = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 1000)
-  //   return () => clearTimeout(id);
-  // }, [])
+  useEffect(() => {
+    AOS.init({duration:2000})
+    setLoading(true);
+    document.title="Portfolio | Mohan M";
+    let id = setTimeout(() => {
+      setLoading(false);
+    }, 200)
+    return () => clearTimeout(id);
+  }, [])
 
+  
+  switch (true){
+    case (windowSize>=1 && windowSize<=599):
+       scrol1.current={"about":730,"skills":970,"projects":1440};
+       break;
+
+    case (windowSize>=600 && windowSize<=820):
+      scrol1.current={"about":580,"skills":970,"projects":2020}
+      break;
+
+    default:
+      scrol1.current={"about":500,"skills":850,"projects":1830} 
+  }
+ 
 
   const socia = isDark ? { backgroundColor: "#6B728E", width: "100%" } : { backgroundColor: "teal", width: "100%" };
 
@@ -73,20 +81,22 @@ function App() {
     headingFontSize:{lg:"4xl",md:"3xl",sm:"2xl",base:"xl"}
   }
   const { headingFontSize } = all;
+  const {about,skills,projects}=scrol1.current;
+  
   
   return (
 
     <div className={isDark?'App':'AppWhite'} onClick={icon % 2 !== 0 ? handleIcon : null}>
-      {/* <div className={isLoading ? "loader" : "normload"} >
+      <div className={isLoading ? "loader" : "normload"} >
          <DeleteLoader /> 
-      </div> */}
-      {/* <div className={isLoading ? "hideall" : "showall"} > */}
+      </div> 
+      <div className={isLoading ? "hideall" : "showall"} >
 
-        <div id={"nav-menu"}>
+        <div id={isDark?"nav-menu":"dark-nav-menu"}>
           <div className="topNav">
 
             <div>
-              <button onClick={() => ref.current.scrollIntoView({behavior: "smooth"})}  >Home</button>
+              <button className='nav-link home' onClick={() => window.scrollTo(0,0)}  >Home</button>
             </div>
             
             <div id='hamburgon'>
@@ -96,12 +106,12 @@ function App() {
           </div> 
 
           <div className={icon ? "rightNavTest" : "hide-right-Nav-Test"}>
-            <button onClick={() => ref.current.scrollIntoView({behavior: "smooth"})}  >About </button>
-            <button onClick={() => skil.current.scrollIntoView({behavior: "smooth"})}  >Skills</button>
-            <button onClick={() => proj.current.scrollIntoView({behavior: "smooth"})}   >Projects</button>
-            <button onClick={() => contac.current.scrollIntoView({behavior: "smooth"})}   >Contact</button>
-            <div>
-              <a href={`${process.env.REACT_APP_Resume_Url1}`} download><button onClick={callResume} >Resume</button></a>
+            <button className='nav-link about' onClick={() => window.scrollTo(0,about)} >About </button>
+            <button className='nav-link skills' onClick={() => window.scrollTo(0,skills)} >Skills</button>
+            <button className='nav-link projects' onClick={() => window.scrollTo(0,projects)} >Projects</button>
+            <button className='nav-link contact' onClick={() => contac.current.scrollIntoView({behavior: "smooth"})}   >Contact</button>
+            <div className='nav-link resume'>
+              <a id="resume-link-1" href={`${process.env.REACT_APP_Resume_Url1}`} download><button id="resume-button-1" onClick={callResume} >Resume</button></a>
             </div>
             <div>
               <Switch size="lg" onChange={toggleColorMode}/>
@@ -111,15 +121,15 @@ function App() {
 
         </div>   
       
-        <Box ref={ref} id="about" style={{ border: "0px solid red" }}>
+        <Box id="home" style={{ border: "0px solid red" }}>
            <Header /> 
         </Box> 
         
-         <Box ref={skil} style={{ border: "0px solid blue" }} data-aos="fade-up">
+         <Box id="skills" style={{ border: "0px solid blue" }}  data-aos="fade-up">
           <TechnicalSkills />
         </Box> 
         
-         <Box ref={proj} data-aos="fade-right">
+         <Box id="projects" data-aos="fade-right">
              <Project isDark={isDark} />   
         </Box> 
         
@@ -138,11 +148,11 @@ function App() {
           </Box> 
         
         </Box>
-        <Box ref={contac} style={socia} data-aos="zoom-in">
+        <Box ref={contac} id="contact" style={socia} data-aos="zoom-in">
            <Social /> 
         </Box> 
     
-      {/* </div> */}
+      </div> 
     </div>
   );
 }

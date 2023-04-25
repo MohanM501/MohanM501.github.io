@@ -7,4 +7,11 @@ const changeColorMode=(dark)=>{
     }
 }
 
-export {changeColorMode};
+const setWindowSize1=(windowSize)=>{
+    return{
+        type:Types.SET_WINDOW_SIZE,
+        payload:windowSize
+    }
+}
+
+export {changeColorMode,setWindowSize1};

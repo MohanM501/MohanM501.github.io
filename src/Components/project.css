@@ -10,7 +10,7 @@
     
 }
 
-.project-container-div{
+.project-card{
     width:100%;
     border:0px solid red;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -40,7 +40,7 @@
     transform: scale(1.2);
     cursor: pointer;
 }
-.titley{
+.project-title{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +74,7 @@
         gap:40px;
         padding:20px;
     }
-    .project-container-div{
+    .project-card{
         margin-bottom: 20px;
         padding:30px;
         border-radius: 25px;
@@ -83,7 +83,7 @@
         margin-bottom: 20px;
     }
     
-    .space{
+    .project-description{
         margin-top: 20px;
         text-align: justify;
         text-align-last: center;
@@ -126,7 +126,7 @@
         grid-template-columns: repeat(1,1fr);
         gap:30px;
     }
-    .project-container-div{
+    .project-card{
         border:0px solid red;
         padding:30px;
         border-radius: 20px;
@@ -161,12 +161,12 @@
     }
 
     
-    .titley{
+    .project-title{
         font-size: 26px;
         margin-top: 20px;
         margin-bottom: 20px;
     }
-    .space{
+    .project-description{
         font-size: 18px;
         margin-bottom: 20px;
     }
@@ -180,7 +180,7 @@
         gap:20px;
         border:0px solid blue;
     }
-    .project-container-div{
+    .project-card{
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         border:0px solid red;
         padding:20px;
@@ -225,10 +225,10 @@
     .tech-stack-head{
         font-size: 12px; 
     }
-    .titley{
+    .project-title{
         margin-top: 10px;
     }
-    .space{
+    .project-description{
         margin-top: 20px;
         text-align: justify;
         text-align-last: center;
