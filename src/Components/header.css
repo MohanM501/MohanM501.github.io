@@ -51,10 +51,10 @@
       .resume-btn{
           margin-top: 40px;
       }
-      #user-detail-intro{
+      /* #user-detail-intro{
           margin-top: 20px;
           margin-right: 40px;
-      }
+      } */
      
       #resume-button-2 {
         display: flex;
@@ -99,10 +99,10 @@
         display: flex;
         justify-content: center;
     }
-    #user-detail-intro{
+    /* #user-detail-intro{
         
         margin: 20px;
-    }
+    } */
     #resume-button-2 {
         display: flex;
         justify-content: space-between;
@@ -146,9 +146,9 @@
         display: flex;
         justify-content: center;
     }
-    #user-detail-intro{
+    /* #user-detail-intro{
         margin: 15px 10px 10px 10px;
-    }
+    } */
     #resume-button-2 {
         display: flex;
         justify-content: space-between;

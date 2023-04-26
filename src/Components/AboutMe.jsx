@@ -10,8 +10,14 @@ const AboutMe = () => {
 
   return (
     <section>
-        <Heading  color="cyan.400" className={Styles["section-title"]} >About</Heading>
-        <Text id={Styles["user-detail-intro"]}  color={col} >
+        <Heading 
+          fontFamily={'Josefin Sans'}
+          fontSize={{ lg: "4xl", md: "3xl", sm: "2xl", base: "xl" }}
+          color="cyan.400" className={Styles["section-title"]} 
+        >
+         About
+        </Heading>
+        <Text  id="user-detail-intro" className={Styles["user-detail-intro1"]}  color={col} >
             {content}
         </Text>
     </section>

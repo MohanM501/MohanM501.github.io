@@ -99,7 +99,7 @@ const Header = () => {
           </Box> 
           
             <div className="resume-btn"> 
-              <a id="resume-link-2" href={pdf} download>
+              <a id="resume-link-2" href={downlink} download>
                 <Button
                   id={isDark ? "resume-button-2" : "resume-button-22"}
                   onClick={callResume}
